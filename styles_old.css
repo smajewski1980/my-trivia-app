@@ -81,11 +81,7 @@ button {
   padding-top: 0.5rem;
   color: green;
   border-radius: 20px;
-  /* min-height: 3.5rem; */
 }
-
-/* .message-line-2 {
-} */
 
 #btn-new-quest {
   margin-block: 0.75rem;
