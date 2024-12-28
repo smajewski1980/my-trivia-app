@@ -19,15 +19,19 @@ body {
 
 .diffCat {
   padding-block: 1rem 0.75rem;
+  padding-left: 0.5rem;
   display: flex;
   gap: 0.25rem;
   border-bottom: 1px solid var(--accent-clr);
   flex-direction: column;
   margin-inline: 1rem;
+  text-align: left;
+  position: relative;
 }
 
 .category {
   line-height: 1.5;
+  max-width: 30ch;
 }
 
 span {
@@ -73,17 +77,33 @@ button {
   font-size: 2rem;
   letter-spacing: 3px;
   font-weight: 700;
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
+  padding-top: 0.5rem;
   color: green;
+  border-radius: 20px;
+  /* min-height: 3.5rem; */
 }
+
+/* .message-line-2 {
+} */
 
 #btn-new-quest {
   margin-block: 0.75rem;
-  font-size: 0.85rem;
-  width: 80%;
+  width: 60px;
+  height: calc(100% - 2rem);
   border-radius: 10px;
-  padding-block: 0.75rem;
+  padding-block: 0.5rem;
   border: 1px solid var(--accent-clr);
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  min-height: 3.5rem;
+}
+
+#btn-new-quest span {
+  display: block;
+  font-size: 0.85rem;
+  margin-block: 0.25rem;
 }
 
 .brain-pic {
@@ -100,21 +120,36 @@ button {
   color: red;
 }
 
+.msg-wrapper-wrong {
+  box-shadow: 1px 1px 5px rgba(255, 0, 0, 0.2);
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.msg-wrapper-correct {
+  box-shadow: 1px 1px 5px rgba(0, 255, 0, 0.3);
+  outline: 1px solid rgba(0, 255, 0, 0.3);
+}
+
 .icon {
   display: none;
   width: 2rem;
   position: absolute;
-  top: 0.25rem;
+  top: 0.75rem;
 }
 
 .icon-cor,
 .icon-inc {
-  left: 3rem;
+  left: 2.25rem;
+  z-index: 5;
 }
 
 .icon-hand-good,
 .icon-hand-bad {
-  right: 3rem;
+  right: 2.25rem;
+}
+
+.icon-hand-good {
+  top: 0.5rem;
 }
 
 .icon-cor {
@@ -123,11 +158,16 @@ button {
 
 .message-wrapper {
   position: relative;
+  margin-inline: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding-bottom: 0.75rem;
+  display: none;
 }
 
-.message span:last-child {
-  display: inline-block;
-  transform: translateY(-10px);
+.message-line-2 {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  display: none;
 }
 
 .display {

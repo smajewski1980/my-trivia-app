@@ -4,7 +4,9 @@ const difficultySpan = document.querySelector(".difficulty span");
 const categorySpan = document.querySelector(".category span");
 const questionElem = document.querySelector(".quest");
 const btnNewQuest = document.getElementById("btn-new-quest");
+const messageWrapper = document.querySelector(".message-wrapper");
 const messageElem = document.querySelector(".message");
+const messageL2Elem = document.querySelector(".message-line-2");
 const iconCor = document.querySelector(".icon-cor");
 const iconHandGood = document.querySelector(".icon-hand-good");
 const iconInc = document.querySelector(".icon-inc");
@@ -13,14 +15,14 @@ const iconHandBad = document.querySelector(".icon-hand-bad");
 let answers = [];
 let turnIsDone = false;
 
-class answerObj {
+class AnswerObj {
   constructor(answer) {
     this.answer = answer;
     this.correctAnswer = false;
   }
 }
 
-class correctAnswerObj extends answerObj {
+class CorrectAnswerObj extends AnswerObj {
   constructor(answer) {
     super(answer);
     this.correctAnswer = true;
@@ -106,7 +108,6 @@ function populateBoolAnswers() {
 }
 
 function populateMultAnswers() {
-  answerDiv.innerHTML = "";
   const shuffledAnswers = shuffleArray(answers);
 
   shuffledAnswers.forEach((ans) => {
@@ -117,16 +118,18 @@ function populateMultAnswers() {
 }
 
 function populateAnswersArray(corr, incAnsArr) {
-  const correctAnswer = new correctAnswerObj(corr);
+  const correctAnswer = new CorrectAnswerObj(corr);
   incAnsArr.forEach((answer) => {
-    answers.push(new answerObj(answer));
+    answers.push(new AnswerObj(answer));
   });
   answers.push(correctAnswer);
 }
 
 function handleCorrectClick() {
   if (!turnIsDone) {
-    console.log("the correct answer was clicked");
+    messageWrapper.style.display = "block";
+    messageWrapper.classList.add("msg-wrapper-correct");
+    messageElem.classList.add("message-correct");
     messageElem.innerText = "CORRECT";
     turnIsDone = true;
     addButtonOutlines();
@@ -136,18 +139,13 @@ function handleCorrectClick() {
 
 function handleIncorrectClick() {
   if (!turnIsDone) {
-    console.log("an incorrect answer was clicked");
+    messageWrapper.style.display = "block";
+    messageWrapper.classList.add("msg-wrapper-wrong");
     messageElem.classList.add("message-wrong");
-    messageElem.innerHTML = `
-      INCORRECT
-      <br />
-      <span>
-      The correct answer was:
-      </span>
-      <br />
-      <span>
-       ${getCorrectAnswer()}
-       </span>
+    messageElem.innerHTML = "INCORRECT";
+    messageL2Elem.style.display = "block";
+    messageL2Elem.innerHTML = `The correct answer was:</br>
+      ${getCorrectAnswer()}
       `;
     turnIsDone = true;
     addButtonOutlines();
@@ -170,6 +168,7 @@ function showIcons(isCorrect) {
   }
 }
 
+// refactor below func like above func
 function addButtonOutlines() {
   const buttons = document.querySelectorAll(".answers button");
   buttons.forEach((btn) => {
