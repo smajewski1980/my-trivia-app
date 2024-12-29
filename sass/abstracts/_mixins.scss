@@ -1,1 +1,4 @@
-
+@mixin msg-wrapper($color) {
+  box-shadow: 1px 1px 5px $color;
+  outline: 3px solid $color;
+}

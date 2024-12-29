@@ -1,60 +1,51 @@
 @use "../abstracts/variables" as *;
-
 .message-wrapper {
-  position: relative;
-  margin-inline: 1rem;
   background: $clr-btn-bg;
-  padding-bottom: 0.75rem;
+  border-radius: $btn-border-radius;
   display: none;
-  border-radius: 20px;
+  margin-inline: auto;
+  padding-bottom: 0.75rem;
+  position: relative;
+  width: 85%;
 
   .message {
-    position: relative;
+    border-radius: $btn-border-radius;
+    color: $clr-msg-correct;
     font-size: 2rem;
-    letter-spacing: 3px;
     font-weight: 700;
+    letter-spacing: 3px;
     margin-top: 0.25rem;
     padding-top: 0.5rem;
-    color: $clr-msg-correct;
-    border-radius: 20px;
+    position: relative;
   }
-
   .message-line-2 {
+    display: none;
     font-size: 1.25rem;
     margin-top: 0.5rem;
-    display: none;
   }
-
   .icon {
     display: none;
-    width: 2rem;
     position: absolute;
     top: 0.75rem;
+    width: 2rem;
   }
-
   .icon-cor,
   .icon-inc {
-    left: 2.25rem;
-    z-index: 5;
+    left: 1.5rem;
   }
-
   .icon-hand-good,
   .icon-hand-bad {
-    right: 2.25rem;
+    right: 1.5rem;
   }
-
   .icon-hand-good {
     top: 0.5rem;
   }
-
   .icon-cor {
-    filter: hue-rotate(-40deg) brightness(0.9);
+    filter: hue-rotate(-40deg) brightness(0.8);
   }
-
   .message-wrong {
     color: $clr-msg-incorrect;
   }
-
   .display {
     display: block;
   }
