@@ -160,7 +160,7 @@ main {
 .brain-pic {
   opacity: 0.2;
   position: absolute;
-  top: 20rem;
+  top: 10rem;
   transform: translateX(-50%);
   width: 525px;
   z-index: -1;
