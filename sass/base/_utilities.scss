@@ -1,0 +1,19 @@
+@use "../abstracts/variables" as *;
+
+.correct {
+  outline: 3px solid $clr-btn-correct;
+}
+.incorrect {
+  outline: 3px solid $clr-btn-incorrect;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.msg-wrapper-wrong {
+  box-shadow: 1px 1px 5px $clr-msg-wrapper-incorrect;
+  outline: 1px solid $clr-msg-wrapper-incorrect;
+}
+
+.msg-wrapper-correct {
+  box-shadow: 1px 1px 5px $clr-msg-wrapper-correct;
+  outline: 1px solid $clr-msg-wrapper-correct;
+}
